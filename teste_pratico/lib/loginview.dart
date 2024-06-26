@@ -29,22 +29,14 @@ class _LoginViewState extends State<LoginView> {
       _emailError = _validateEmail(email) ? null : 'Email inválido';
       _passwordError = _validatePassword(password);
     });
-
-    if (_emailError == null && _passwordError == null) {
-      print("Login successful");
-    } else {
-      print("Invalid email or password");
-    }
   }
 
   bool _validateEmail(String email) {
-    // Basic email validation
     String emailPattern = r'^[^@]+@[^@]+\.[^@]+';
     return RegExp(emailPattern).hasMatch(email);
   }
-
   String? _validatePassword(String password) {
-    // Password must be 6 characters long and contain at least one uppercase letter or one special character
+
     if (password.length != 6) return 'Senha deve ter 6 caracteres';
     String pattern = r'^(?=.*[A-Z])|(?=.*[!@#\$&*~])';
     if (!RegExp(pattern).hasMatch(password)) {
