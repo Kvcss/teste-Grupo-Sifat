@@ -3,8 +3,9 @@
 ## Descrição do Projeto
 
 Este projeto é um aplicativo móvel desenvolvido em Flutter como parte do teste prático para o Grupo SIFAT. O aplicativo apresenta uma tela de login e uma lista de produtos utilizando a API Fake Store para exibir dados de produtos fictícios.
+O gerenciamento de estado é feito utilizando o padrão BLoC (Business Logic Component) para garantir uma separação clara entre a lógica de negócios e a interface do usuário.
 
-Aqui está uma imagem representativa de como o app ficou: 
+Aqui está as imagens de como o app ficou: 
 
 ### Tela de Login
 ![Tela de Login](assets/images/login.png)
