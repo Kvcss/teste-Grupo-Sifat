@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:teste_pratico/entities/ProductsEntity.dart';
-import 'package:teste_pratico/repositories/ProductEntity.dart';
-import 'package:teste_pratico/views/home/homeBloc.dart';
+import 'package:teste_pratico/repositories/ProductRepository.dart';
+import 'package:teste_pratico/views/home/ProductBloc.dart';
+import 'package:teste_pratico/views/login/loginview.dart';
 
 class ProductListScreen extends StatefulWidget {
+  const ProductListScreen({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _ProductListScreenState createState() => _ProductListScreenState();
 }
 
@@ -25,8 +29,10 @@ class _ProductListScreenState extends State<ProductListScreen> {
   }
 
   void _logout() {
-    // Implementar a lógica de logout aqui
-    Navigator.pop(context); // Navegar de volta para a tela inicial
+    Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => const LoginView()),
+      );
   }
 
   @override
@@ -56,7 +62,7 @@ class _ProductListScreenState extends State<ProductListScreen> {
           } else if (snapshot.hasError) {
             return Center(child: Text('Error: ${snapshot.error}'));
           } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
-            return Center(child: Text('No products available'));
+            return const Center(child: Text('No products available'));
           } else {
             final products = snapshot.data!;
             return GridView.builder(
