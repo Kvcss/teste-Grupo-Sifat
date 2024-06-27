@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:teste_pratico/views/home/Productview.dart';
+
 
 class LoginView extends StatefulWidget {
   const LoginView({super.key});
@@ -21,6 +23,7 @@ class _LoginViewState extends State<LoginView> {
     super.dispose();
   }
 
+  // Função que verifica os campos de email e senha.
   void _login() {
     String email = _emailController.text;
     String password = _passwordController.text;
@@ -29,17 +32,24 @@ class _LoginViewState extends State<LoginView> {
       _emailError = _validateEmail(email) ? null : 'Email inválido';
       _passwordError = _validatePassword(password);
     });
+
+    if (_emailError == null && _passwordError == null) {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => const ProductListScreen()),
+      );
+    }
   }
 
   bool _validateEmail(String email) {
-    String emailPattern = r'^[^@]+@[^@]+\.[^@]+';
-    return RegExp(emailPattern).hasMatch(email);
+    String validateEmail = r'^[^@]+@[^@]+\.[^@]+';
+    return RegExp(validateEmail).hasMatch(email);
   }
-  String? _validatePassword(String password) {
 
-    if (password.length != 6) return 'Senha deve ter 6 caracteres';
-    String pattern = r'^(?=.*[A-Z])|(?=.*[!@#\$&*~])';
-    if (!RegExp(pattern).hasMatch(password)) {
+  String? _validatePassword(String password) {
+    if (password.length < 6) return 'Senha deve ter pelo menos 6 caracteres';
+    String validatePassword = r'^(?=.*[A-Z])|(?=.*[!@#\$&*~])';
+    if (!RegExp(validatePassword).hasMatch(password)) {
       return 'Senha deve conter uma letra maiúscula ou um caractere especial';
     }
     return null;
@@ -122,7 +132,6 @@ class _LoginViewState extends State<LoginView> {
                         TextField(
                           controller: _passwordController,
                           obscureText: !_passwordVisible,
-                          maxLength: 6,
                           decoration: InputDecoration(
                             filled: true,
                             fillColor: Colors.white,

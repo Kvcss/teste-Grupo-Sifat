@@ -1,4 +1,4 @@
-import 'dart:convert';
+
 import 'package:dio/dio.dart';
 import 'package:teste_pratico/entities/ProductsEntity.dart';
 
@@ -6,6 +6,7 @@ abstract class IProductRepository {
   Future<List<ProductEntity>> getProducts();
 }
 
+//classe responsavel por fazer a requisicão na api 
 class ProductRepository implements IProductRepository {
   @override
   Future<List<ProductEntity>> getProducts() async {

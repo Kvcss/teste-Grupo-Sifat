@@ -1,7 +1,8 @@
 import 'dart:async';
 import 'package:bloc_pattern/bloc_pattern.dart';
 import 'package:teste_pratico/entities/ProductsEntity.dart';
-import 'package:teste_pratico/repositories/ProductEntity.dart';
+import 'package:teste_pratico/repositories/ProductRepository.dart';
+
 
 abstract class IProductViewBloc {
   Stream<List<ProductEntity>> get productsStream;
