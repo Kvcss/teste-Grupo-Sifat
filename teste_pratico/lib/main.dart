@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:teste_pratico/loginview.dart';
+import 'package:teste_pratico/views/home/homeview.dart';
+import 'package:teste_pratico/views/login/loginview.dart';
 
 void main() {
   runApp(const MyApp());
@@ -7,8 +8,6 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -19,7 +18,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const LoginView(),
+      home:  ProductListScreen(),
     );
   }
 }
