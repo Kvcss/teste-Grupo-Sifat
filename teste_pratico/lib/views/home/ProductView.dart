@@ -27,14 +27,7 @@ class _ProductListScreenState extends State<ProductListScreen> {
     _productViewBloc.dispose();
     super.dispose();
   }
-
-  void _logout() {
-    Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => const LoginView()),
-      );
-  }
-
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,7 +43,9 @@ class _ProductListScreenState extends State<ProductListScreen> {
         actions: [
           IconButton(
             icon: const Icon(Icons.logout, color: Colors.white),
-            onPressed: _logout,
+            onPressed: (){
+               _productViewBloc.logout(context);
+            },
           ),
         ],
       ),
@@ -104,7 +99,7 @@ class ProductCard extends StatelessWidget {
           AspectRatio(
             aspectRatio: 4 / 3,
             child: ClipRRect(
-              borderRadius: BorderRadius.vertical(top: Radius.circular(12.0)),
+              borderRadius: const BorderRadius.vertical(top: Radius.circular(12.0)),
               child: Image.network(
                 product.image!,
                 fit: BoxFit.cover,
