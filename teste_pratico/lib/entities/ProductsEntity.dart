@@ -1,4 +1,5 @@
-// ignore: file_names
+
+//classe responsalvel por moldar os dados de JSON para DART
 class ProductEntity {
   int? id;
   String? title;

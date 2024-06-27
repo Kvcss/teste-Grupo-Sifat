@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:teste_pratico/entities/ProductsEntity.dart';
 import 'package:teste_pratico/repositories/ProductRepository.dart';
 import 'package:teste_pratico/views/home/ProductBloc.dart';
-import 'package:teste_pratico/views/login/loginview.dart';
+
 
 class ProductListScreen extends StatefulWidget {
   const ProductListScreen({super.key});
@@ -15,6 +15,7 @@ class ProductListScreen extends StatefulWidget {
 class _ProductListScreenState extends State<ProductListScreen> {
   late ProductViewBloc _productViewBloc;
 
+//vai chamar a função fetchProducts no momento em que a tela foi instânciada
   @override
   void initState() {
     super.initState();
@@ -44,11 +45,13 @@ class _ProductListScreenState extends State<ProductListScreen> {
           IconButton(
             icon: const Icon(Icons.logout, color: Colors.white),
             onPressed: (){
+              //vai encaminhar para a pagina de login novamente 
                _productViewBloc.logout(context);
             },
           ),
         ],
       ),
+      //aqui ele vai verificar o estado dos dados e retornar um widget para cada estado!
       body: StreamBuilder<List<ProductEntity>>(
         stream: _productViewBloc.productsStream,
         builder: (context, snapshot) {

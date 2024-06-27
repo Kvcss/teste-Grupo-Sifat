@@ -16,6 +16,7 @@ class _LoginViewState extends State<LoginView> {
   String? _passwordError;
   bool _passwordVisible = false;
 
+  //Liberar a memória 
   @override
   void dispose() {
     _emailController.dispose();
@@ -23,7 +24,7 @@ class _LoginViewState extends State<LoginView> {
     super.dispose();
   }
 
-  // Função que verifica os campos de email e senha.
+  // Função que verifica os campos de email e senha após o usuario apertar no login.
   void _login() {
     String email = _emailController.text;
     String password = _passwordController.text;
@@ -41,11 +42,13 @@ class _LoginViewState extends State<LoginView> {
     }
   }
 
+  //Função que verifica o email
   bool _validateEmail(String email) {
     String validateEmail = r'^[^@]+@[^@]+\.[^@]+';
     return RegExp(validateEmail).hasMatch(email);
   }
 
+  //Função que verifica a senha
   String? _validatePassword(String password) {
     if (password.length < 6) return 'Senha deve ter pelo menos 6 caracteres';
     String validatePassword = r'^(?=.*[A-Z])|(?=.*[!@#\$&*~])';

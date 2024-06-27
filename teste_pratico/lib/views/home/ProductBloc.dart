@@ -11,7 +11,7 @@ abstract class IProductViewBloc {
   void fetchProducts();
   void logout(BuildContext context);
 }
-
+//Essa classe vai servir controlar o estado dos dados.
 class ProductViewBloc extends BlocBase implements IProductViewBloc {
   final IProductRepository _productRepository;
   final StreamController<List<ProductEntity>> _productsController = StreamController<List<ProductEntity>>.broadcast();
@@ -21,6 +21,7 @@ class ProductViewBloc extends BlocBase implements IProductViewBloc {
   @override
   Stream<List<ProductEntity>> get productsStream => _productsController.stream;
 
+  //Vai acessar o método que irá coletar os dados da api pública 
   @override
   void fetchProducts() async {
     try {
@@ -31,6 +32,7 @@ class ProductViewBloc extends BlocBase implements IProductViewBloc {
     }
   }
 
+  //Redireciona o usuario de volta para a pagina de login
   @override
   void logout(BuildContext context){
       Navigator.pushReplacement(
@@ -38,7 +40,7 @@ class ProductViewBloc extends BlocBase implements IProductViewBloc {
         MaterialPageRoute(builder: (context) => const LoginView()),
       );
   }
-
+  //Liberar a memória ocupada pelo controller 
   @override
   void dispose() {
     _productsController.close();

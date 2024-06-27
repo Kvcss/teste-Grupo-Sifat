@@ -21,7 +21,6 @@ class ProductRepository implements IProductRepository {
         throw Exception('Failed to fetch products');
       }
     } catch (e) {
-      print(e.toString());
       throw Exception('Failed to fetch products');
     }
   }
