@@ -188,7 +188,7 @@ class _LoginViewState extends State<LoginView> {
                       padding: const EdgeInsets.symmetric(horizontal: 150, vertical: 15),
                     ),
                     child: const Text(
-                      'Log In',
+                      'Login',
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 18,
