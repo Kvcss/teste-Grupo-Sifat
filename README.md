@@ -7,11 +7,18 @@ O gerenciamento de estado é feito utilizando o padrão BLoC (Business Logic Com
 
 Aqui está as imagens de como o app ficou: 
 
-### Tela de Login
-![Tela de Login](assets/images/login.png)
-
-### Lista de Produtos
-![Lista de Produtos](assets/images/produtos.png)
+<table>
+  <tr>
+    <td>
+      <p align="center">Tela de Login</p>
+      <img src="/teste_pratico/assets/images/login.png" alt="Tela de Login" width="300"/>
+    </td>
+    <td>
+      <p align="center">Lista de Produtos</p>
+      <img src="/teste_pratico/assets/images/produtos.png" alt="Lista de Produtos" width="300"/>
+    </td>
+  </tr>
+</table>
 
 ## Como executar o aplicativo:
 
