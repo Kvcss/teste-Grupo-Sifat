@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:teste_pratico/entities/ProductsEntity.dart';
 import 'package:teste_pratico/repositories/ProductRepository.dart';
 import 'package:teste_pratico/views/home/ProductBloc.dart';
-import 'package:teste_pratico/views/login/loginview.dart';
+
 
 class ProductListScreen extends StatefulWidget {
   const ProductListScreen({super.key});
@@ -27,7 +27,7 @@ class _ProductListScreenState extends State<ProductListScreen> {
     _productViewBloc.dispose();
     super.dispose();
   }
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
